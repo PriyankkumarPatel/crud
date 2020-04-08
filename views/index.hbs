@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="../src/index.js"></script>
+<script src="../app.js"></script>
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+</head>
+<body>
+ <a href="/register"><h1>Register</h1></a>
+<div style="overflow-x:auto;">
+  <form >
+  <table class="table table-bordered table-striped" id="usertable" >
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+    <tr>
+        {{#each data}}
+            <tr>
+                <td id="fname">{{this.Firstname}}</td>
+                <td id="lname">{{this.Lastname}}</td>
+                <td id="con">{{this.Contact}}</td>
+                <td id="em">{{this.Email}}</td>
+                <td id="gen">{{this.Gender}}</td>
+                <td><input type="button" value="Delete" id="deletebtn" onclick="deletebtn({{this.Id}})"></td>
+                <td><input type="button" value="Edit" id="editbtn" onclick="editbtn({{this.id}})" ></td>
+            </tr>
+        {{/each}}
+    </tr>
+  </table></form>
+</div>
+<br>
+
+
+</body>
+</html>
